@@ -2,5 +2,22 @@ version: "3"
 services:
   client:
     build: .
+
+  swag:
+    image: lscr.io/linuxserver/swag
+    container_name: swag
+    cap_add:
+      - NET_ADMIN
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=America/Denver
+      - URL=reactdemo.duckdns.org
+      - VALIDATION=duckdns
+      # - DUCKDNSTOKEN=509369a2-261e-4ef1-8b87-1fd884066151
+      - STAGING=true 
+    volumes:
+      - /home/ethan/data/swag:/config
     ports:
-    - 3007:80
+    - 0.0.0.0:3007:80
+    restart: unless-stopped
