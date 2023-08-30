@@ -5,17 +5,16 @@ services:
 
   swag:
     image: lscr.io/linuxserver/swag
-    container_name: swag
     cap_add:
       - NET_ADMIN
     environment:
       - PUID=1000
       - PGID=1000
       - TZ=America/Denver
-      - URL=reactdemo.duckdns.org
+      - URL=whittakerxyz.duckdns.org
       - VALIDATION=duckdns
       # - DUCKDNSTOKEN=509369a2-261e-4ef1-8b87-1fd884066151
-      - STAGING=true 
+      - STAGING=false 
     volumes:
       - /home/ethan/data/swag:/config
     ports:
